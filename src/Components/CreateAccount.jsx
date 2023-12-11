@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 const CreateAccount = () => {
     const [register, setRegister] = useState({
@@ -81,7 +82,7 @@ const CreateAccount = () => {
                             <input type="number" class="form-control" onChange={handleRegisterInputs} name='ph_no' id="exampleFormControlInput3" placeholder="Phone Number" style={{backgroundColor:'#3e4a61'}}/><br /><br />
                             <input type="password" class="form-control" onChange={handleRegisterInputs} name='password' id="exampleFormControlInput4" placeholder="Password" style={{backgroundColor:'#3e4a61'}}/><br /><br />
                             <button class="form-control button-style">Register</button>
-                            <p className='lh-lg'>Already have an account? <a href=''>SignIn</a></p> 
+                            <p className='lh-lg'>Already have an account? <Link to='/Login'>Sign In</Link></p> 
                         </form>
                     </div>
             </div>

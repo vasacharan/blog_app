@@ -18,7 +18,7 @@ const Navbar = () => {
                             <Link to="/" class="nav-link active fw-bolder nav-list-ani" aria-current="page" href="#">Home</Link>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link fw-bolder" href="#">Contact Us</a>
+                            <Link to='/ContactUs' class="nav-link fw-bolder" href="#">Contact Us</Link>
                           </li>
                           <li class="nav-item">
                             <Link to="/CreateBlog" class="nav-link fw-bolder" href="#">Create Blog</Link>
