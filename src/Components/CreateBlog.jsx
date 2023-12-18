@@ -1,30 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CreateBlog = () => {
+
+    const [blogContent, setBlogContent] = useState({
+        topic : "",
+        title : "",
+        content : ""
+    });
+
+    const handleBlogContent=(e)=>{
+        setBlogContent({...blogContent, [e.target.name] : e.target.value})
+    }
+ 
+    async function handleBlogSubmit(e){
+        e.preventDefault();
+
+        const token = JSON.parse(sessionStorage.getItem("userProfile"))?.token;
+        // console.log("token ",token);                  //blog content console
+        try{
+            const blogResp = await fetch("https://blog-application-qiks.onrender.com/api/v1/blog/createNewBlog",{
+                method : "POST",
+                headers : {"Content-Type" : "application/json", "Authorization" : `Bearer ${token}`},
+                body : JSON.stringify(blogContent)
+            })
+
+            if(blogResp.success){
+                alert("Blog created successfully !!!");
+            }
+
+        }catch(error){
+            console.log(error.message);
+            throw  "Invaid Token";
+          // alert("Invalid Token");
+        }
+        
+    }
+
   return (
-    <div>
-    <div className='d-flex justify-content-center mt-4'>
+    <div >
+    <div className='d-flex justify-content-center mt-4 '>
         <div className='card w-50'style={{backgroundColor:'#c4c1e0'}}>
         <div className='card-body text-start'>
         <h2 className='text-center fst-italic'>Create Blog</h2>
+            <form onSubmit={handleBlogSubmit}>
 
-            <label for="exampleFormControlInput1" class="form-label">Topic</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Select a Topic</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <label htmlFor="exampleFormControlInput1" className="form-label">Topic*</label>
+            <input type="text" className="form-control" id="exampleFormControlInput1" name='topic' placeholder="Topic of blog" onChange={handleBlogContent} />
+               
             <br />
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label ">Title</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Title of blog" />
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlInput2" className="form-label ">Title*</label>
+                <input type="text" className="form-control" id="exampleFormControlInput2" name='title' placeholder="Title of blog" onChange={handleBlogContent} />
             </div>
 
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Blog Content</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div className="mb-3">
+                <label htmlFor="exampleFormControlTextarea1" className="form-label">Blog Content*</label>
+                <textarea className="form-control" id="exampleFormControlTextarea1" rows="10" name='content' placeholder="Write here about blog" onChange={handleBlogContent}></textarea>
             </div>
+            <button className='btn btn-primary' type='submit'>Submit</button>
+            </form>
         </div>
         </div>
     </div>
@@ -33,3 +67,12 @@ const CreateBlog = () => {
 }
 
 export default CreateBlog;
+
+// <select className="form-select" id='exampleFormControlInput1' aria-label="Default select example" name='topic' onChange={handleBlogContent}>
+// <option >Select a Topic</option>
+// <option value="Frontend Development">Frontend Development</option>
+// <option value="Backend Development">Backend Development</option>
+// <option value="Testing">Testing</option>
+// <option value="Database">Database</option>
+// <option value="Others">Others</option>
+// </select>

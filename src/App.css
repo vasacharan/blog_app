@@ -36,6 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+
 .button-style{
   background-color: #5e63b6;
 }
@@ -67,13 +70,16 @@ button:hover {
     transform: rotate(360deg);
   }
 
-
 }
+
 /* NAVBAR */
 .navbar{
   padding: 0px;
   margin: 0px;
 }
+/* nav bar */
+
+
 /* LOGIN  */
 .card_height{
   height: 300px;
@@ -84,18 +90,33 @@ button:hover {
   box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .backcolor{
-  background-color: rgb(115, 176, 193);
+  background-color: rgb(129, 181, 197);
 
 }
 .butshadow{
-  background-color: rgb(137, 233, 233);
+ background-color: rgb(137, 233, 233);
  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;;
 
 }
-/* REGISTER */
-.card_height{
- height: 400px;
+
+/* Create account */
+.bg-img-ca{
+  background-image: url("./Assets/pexels.jpg");
+  background-size: cover;
+  border-image: fill 0 linear-gradient(rgba(104, 104, 104, 0.9),#616161);
 }
+.bg-img-sign{
+  background-image: url("./Assets/pic2.jpg");
+  background-size: cover;
+  /* border-image: fill 0 linear-gradient(rgba(104, 104, 104, 0.9),#616161); */
+
+}
+
+
+/* REGISTER */
+/* .card_height{
+ height: 400px;
+} */
 
 /* CONTACT US */
 
@@ -114,6 +135,35 @@ button:hover {
 }
 a:hover{
   text-decoration: underline;
-  color: blue;
+  color: whitesmoke;
 }
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  border: 4px solid #0000;
+  border-radius: 50%;
+  border-right-color: #25b09b;
+  animation: l15 1s infinite linear;
+}
+.loader::before,
+.loader::after {    
+  content: "";
+  grid-area: 1/1;
+  margin: 2px;
+  border: inherit;
+  border-radius: 50%;
+  animation: l15 2s infinite;
+}
+.loader::after {
+  margin: 8px;
+  animation-duration: 3s;
+}
+@keyframes l15{ 
+  100%{transform: rotate(1turn)}
+}
+
 

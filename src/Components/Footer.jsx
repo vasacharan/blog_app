@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className='bg-secondary-subtle mt-5 '>
-      <div className='container bg-secondary-subtle mt-5'>
+    <div className='bg-secondary-subtle mt-3'>
+      <div className='container bg-secondary-subtle'>
         <div className='row g-3'>
             <div className='col-md-3 col-6'>
                 <div className='card border-0 bg-secondary-subtle'>
