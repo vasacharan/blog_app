@@ -31,7 +31,7 @@ const CreateBlog = () => {
         }catch(error){
             console.log(error.message);
             throw  "Invaid Token";
-          // alert("Invalid Token");
+          
         }
         
     }
@@ -68,11 +68,3 @@ const CreateBlog = () => {
 
 export default CreateBlog;
 
-// <select className="form-select" id='exampleFormControlInput1' aria-label="Default select example" name='topic' onChange={handleBlogContent}>
-// <option >Select a Topic</option>
-// <option value="Frontend Development">Frontend Development</option>
-// <option value="Backend Development">Backend Development</option>
-// <option value="Testing">Testing</option>
-// <option value="Database">Database</option>
-// <option value="Others">Others</option>
-// </select>

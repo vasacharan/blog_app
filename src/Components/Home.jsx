@@ -70,7 +70,3 @@ console.log("blogdata: ",blogData);
 }
 
 export default Home;
-
-
-// <img src={https://source.unsplash.com/random?${blog.topic}} alt="" className='image_blog'/>
-// <button onClick={fetchData}>For blogs click</button>
